@@ -1,13 +1,65 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    /*
+    |-------------------------------------------------------------------------------------
+    | target Module
+    |-------------------------------------------------------------------------------------
+    |
+    | ES6 is a good choice
+    |
+    | You might choose to set a lower target if your code is deployed to older environments, 
+    | or a higher target if your code is guaranteed to run in newer environments.
+    |
+    | The special ESNext value refers to the highest version your version of TypeScript supports. 
+    | This setting should be used with caution, since it doesn’t mean the same thing 
+    | between different TypeScript versions and can make upgrades less predictable.
+    |
+    */
+    "target": "ES6",
+    /* 
+    |-------------------------------------------------------------------------------------
+    | Sets the module system for the program.
+    |-------------------------------------------------------------------------------------
+    |
+    | You very likely want "CommonJS" for node projects.
+    |
+    */
+    "module": "CommonJS",
+    /* 타입 검사 */
     "strict": true,
+    /* 
+    |-------------------------------------------------------------------------------------
+    | Controls how JSX constructs are emitted in JavaScript files.
+    |-------------------------------------------------------------------------------------
+    */
     "jsx": "preserve",
+    /* 
+    |-------------------------------------------------------------------------------------
+    | Specify the module resolution strategy
+    |-------------------------------------------------------------------------------------
+    |
+    | 'node' for Node.js’ CommonJS implementation 
+    | 'node16' or 'nodenext' for Node.js’ ECMAScript Module Support from TypeScript 4.7 onwards
+    | 'classic' used in TypeScript before the release of 1.6. You probably won’t need to use classic in modern code
+    |
+    */
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "skipLibCheck": true,
+    /* 
+    |-------------------------------------------------------------------------------------
+    | Turning on esModuleInterop will fix both of these problems in the code transpiled by TypeScript.
+    |-------------------------------------------------------------------------------------
+    */
     "esModuleInterop": true,
+    /* 
+    |-------------------------------------------------------------------------------------
+    | When set to true, allowSyntheticDefaultImports allows you to write an import like:
+    |-------------------------------------------------------------------------------------
+    |
+    | import * as React from "react"; -> import React from "react";
+    |
+    */
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
@@ -22,12 +74,13 @@
       ]
     },
     "lib": [
-      "esnext",
+      "ES6",
       "dom",
       "dom.iterable",
       "scripthost"
     ]
   },
+  /* ts -> js 컴파일할 폴더 지정 */
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -35,6 +88,7 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
+  /* 컴파일 제외 */
   "exclude": [
     "node_modules"
   ]
